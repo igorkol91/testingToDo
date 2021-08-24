@@ -31,7 +31,7 @@ input.addEventListener('keypress', (e) => {
       input.value = '';
       // Create new todo if input length is less that 20 characters
     } else {
-      success();
+      success('created');
       CreateTodo(input.value);
       input.value = '';
       updateDom();

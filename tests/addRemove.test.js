@@ -1,4 +1,10 @@
 import ToDo from '../src/module/todo.js';
+import {createLiTodo} from '../src/module/utilities.js';
+import Storage from '../src/module/localStorage.js';
+
+import { JSDOM } from "jsdom";
+const dom = new JSDOM()
+global.document = dom.window.document
 
 class LocalStorageMock {
   constructor() {
@@ -62,4 +68,40 @@ describe('after adding new element', () => {
     const storage = JSON.parse(localStorage.getItem('newProjectList'));
     expect(storage.length).toEqual(1);
   });
+
+  test('Add one new item to the list', () => {
+    document.body.innerHTML =
+    '<div>' +
+    '  <ul id="list"></ul>' +
+    '</div>';
+    Storage.set([
+      {
+        index: 0,
+        description: 'CapstoneProject',
+        checked: false
+      },
+      {
+        index: 1,
+        description: 'Todo Project',
+        checked: false
+      },
+      {
+        index: 2,
+        description: 'RestaurauntProject',
+        checked: false
+      },
+    ]);
+    const list = document.getElementById('list');
+    let index = -1;
+    const storage = Storage.get();
+    storage.forEach((elem) => {
+      // Reset the indexes starting from 1
+      index += 1;
+      elem.index = index;
+      // Create li, check box and description h5 for every Todo Object
+      const newLi = createLiTodo(elem.description, index);
+      list.appendChild( newLi);
+    });
+    expect(list.children).toHaveLength(3);
+});
 });

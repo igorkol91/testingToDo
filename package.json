@@ -39,6 +39,7 @@
   "homepage": "https://github.com/igorkol91/ToDoList#readme",
   "dependencies": {
     "jest": "^27.0.6 --coverage",
+    "jsdom": "^16.7.0",
     "lodash": "^4.17.21"
   }
 }

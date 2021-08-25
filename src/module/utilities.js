@@ -1,8 +1,8 @@
 import Storage from './localStorage.js';
 
 // Function for displaying a todo was created
-const success = (success) => {
-  let message = success === 'created' ? 'created' : 'edited';
+const success = (messages) => {
+  const message = messages === 'created' ? 'created' : 'edited';
   const success = document.createElement('div');
   success.innerText = `To Do ${message} successfully!`;
   success.classList += 'bg-success success w-50 text-center';

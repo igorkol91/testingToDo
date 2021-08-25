@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack",
     "start": "webpack serve --open"
   },
@@ -18,6 +18,7 @@
     "url": "https://github.com/igorkol91/ToDoList/issues"
   },
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.15.0",
     "babel-eslint": "^10.1.0",
     "css-loader": "^5.2.7",
     "devtool": "^1.5.3",
@@ -33,11 +34,11 @@
     "stylelint-scss": "^3.19.0",
     "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2",
-    "test": "jest"
+    "webpack-dev-server": "^4.0.0"
   },
   "homepage": "https://github.com/igorkol91/ToDoList#readme",
   "dependencies": {
+    "jest": "^27.0.6 --coverage",
     "lodash": "^4.17.21"
   }
 }

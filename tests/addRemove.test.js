@@ -44,17 +44,6 @@ localStorage.setItem(
   ]),
 );
 
-describe('on page load', () => {
-  it('it should create default projects', () => {
-    const storage = JSON.parse(localStorage.getItem('projectList'));
-    expect(storage[1].description).toBe('Todo Project');
-  });
-  it('expect projectlist length to be 3', () => {
-    const storage = JSON.parse(localStorage.getItem('projectList'));
-    expect(storage.length).toEqual(3);
-  });
-});
-
 const newToDo = new ToDo('NewTodo');
 const newArray = [newToDo];
 localStorage.setItem('newProjectList', JSON.stringify(newArray));
@@ -75,6 +64,17 @@ Storage.set([
     checked: false,
   },
 ]);
+
+describe('on page load', () => {
+  it('it should create default projects', () => {
+    const storage = JSON.parse(localStorage.getItem('projectList'));
+    expect(storage[1].description).toBe('Todo Project');
+  });
+  it('expect projectlist length to be 3', () => {
+    const storage = JSON.parse(localStorage.getItem('projectList'));
+    expect(storage.length).toEqual(3);
+  });
+});
 
 describe('after adding new element', () => {
   it('it should add new element in a new project list', () => {

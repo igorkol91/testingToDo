@@ -33,7 +33,8 @@
     "stylelint-scss": "^3.19.0",
     "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "test": "jest"
   },
   "homepage": "https://github.com/igorkol91/ToDoList#readme",
   "dependencies": {

@@ -1,18 +1,10 @@
 import Storage from './localStorage.js';
 
 // Function for displaying a todo was created
-const success = () => {
+const success = (success) => {
+  let message = success === 'created' ? 'created' : 'edited';
   const success = document.createElement('div');
-  success.innerText = 'To Do created successfully!';
-  success.classList += 'bg-success success w-50 text-center';
-  const body = document.querySelector('body');
-  body.append(success);
-  setTimeout(() => success.remove(), 3000);
-};
-
-const editSuccess = () => {
-  const success = document.createElement('div');
-  success.innerText = 'To Do edited successfully!';
+  success.innerText = `To Do ${message} successfully!`;
   success.classList += 'bg-success success w-50 text-center';
   const body = document.querySelector('body');
   body.append(success);
@@ -66,7 +58,7 @@ const editButton = (e) => {
       } else {
         descriptionText.innerText = descriptionInput.value;
         descriptionInput.remove();
-        editSuccess();
+        success('edited');
         const storage = Storage.get();
         storage[index].description = descriptionText.innerText;
         Storage.set(storage);

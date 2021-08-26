@@ -129,7 +129,7 @@ describe('Describe press check box', () => {
 });
 
 describe('Desscribe clear all completed button do', () => {
-  it('removes all todos checked as complete', () => {
+  it('removes all todos checked as complete and update list', () => {
     document.body.innerHTML = '<div>'
         + '  <ul id="list"></ul>'
         + '<button id="remove-btn" class="p-2 w-50 my-3">Remove Selected</button>'
@@ -145,8 +145,8 @@ describe('Desscribe clear all completed button do', () => {
       const newLi = createLiTodo(elem.description, index);
       list.appendChild(newLi);
       storage[index].checked = true;
-      Storage.set(storage);
     });
+    Storage.set(storage);
     const button = document.querySelector('#remove-btn');
     button.addEventListener('click', () => {
       removeAllCompleted();

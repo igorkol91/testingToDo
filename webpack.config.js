@@ -11,7 +11,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    contentBase: './docs',
+    static: './docs',
   },
 
   module: {

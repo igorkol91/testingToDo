@@ -73,6 +73,12 @@ const editButton = (e) => {
   });
 };
 
+const removeAllCompleted = () => {
+  let storage = Storage.get();
+  storage = storage.filter((elem) => elem.checked !== true);
+  Storage.set(storage);
+};
+
 const createLiTodo = (todoDescription, index) => {
   // Create all the elements needed for a todo
   const li = document.createElement('li');
@@ -83,7 +89,7 @@ const createLiTodo = (todoDescription, index) => {
   checkbox.type = 'checkbox';
   description.innerText = todoDescription;
   // Add event listener to the checkbox
-  checkbox.addEventListener('change', (e) => {
+  checkbox.addEventListener('click', (e) => {
     checkLi(e, index);
   });
   // Add classes, attributes and event listeners
@@ -115,5 +121,5 @@ const createLiTodo = (todoDescription, index) => {
 };
 
 export {
-  success, error, createLiTodo, editButton,
+  success, error, createLiTodo, removeAllCompleted,
 };

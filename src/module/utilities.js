@@ -114,4 +114,6 @@ const createLiTodo = (todoDescription, index) => {
   return li;
 };
 
-export { success, error, createLiTodo };
+export {
+  success, error, createLiTodo, editButton,
+};
